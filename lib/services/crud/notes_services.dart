@@ -53,10 +53,15 @@ class NotesService {
     await getNote(id: note.id);
 
     //update db
-    final updatesCount = await db.update(noteTable, {
-      textColumn: text,
-      isSyncedWithCloudColumn: 0,
-    });
+    final updatesCount = await db.update(
+      noteTable,
+      {
+        textColumn: text,
+        isSyncedWithCloudColumn: 0,
+      },
+      where: 'id = ?',
+      whereArgs: [note.id],
+    );
 
     if (updatesCount == 0) {
       throw CouldNotUpdateNote();
@@ -318,7 +323,7 @@ const emailColumn = 'email';
 const userIdColumn = 'user_id';
 const textColumn = 'text';
 const isSyncedWithCloudColumn = 'is_synced_with_cloud';
-const createUserTable = '''CREATE TABLE "user" IF NOT EXISTS "user"(
+const createUserTable = '''CREATE TABLE IF NOT EXISTS "user"(
 	      "id"	INTEGER NOT NULL,
 	      "email"	INTEGER NOT NULL UNIQUE,
 	      PRIMARY KEY("id" AUTOINCREMENT)
