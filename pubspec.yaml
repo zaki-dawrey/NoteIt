@@ -40,6 +40,7 @@ dependencies:
   firebase_auth: ^4.7.0
   sqflite: ^2.2.8+4
   path_provider: ^2.0.15
+  cloud_firestore: ^4.8.4
 
 dev_dependencies:
   flutter_test:
