@@ -6,7 +6,6 @@ import 'package:flutter_application_1/utilities/dialogs/logout_dialog.dart';
 import 'package:flutter_application_1/views/notes/notes_list_view.dart';
 import '../../constants/routes.dart';
 import '../../enums/menu_action.dart';
-import 'notes_list_view.dart';
 
 class NotesView extends StatefulWidget {
   const NotesView({super.key});
@@ -29,7 +28,7 @@ class _NotesViewState extends State<NotesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All Notes'),
+        title: const Text('Notes'),
         actions: [
           IconButton(
               onPressed: () {
