@@ -31,6 +31,7 @@ class _NotesViewState extends State<NotesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // ignore: prefer_const_constructors
         backgroundColor: Color.fromRGBO(140, 162, 217, 1),
         title: const Text('Notes'),
         actions: [
@@ -44,6 +45,7 @@ class _NotesViewState extends State<NotesView> {
               case MenuAction.logout:
                 final shouldLogout = await showLogOutDialog(context);
                 if (shouldLogout) {
+                  // ignore: use_build_context_synchronously
                   context.read<AuthBloc>().add(
                         const AuthEventLogOut(),
                       );
@@ -59,6 +61,7 @@ class _NotesViewState extends State<NotesView> {
           })
         ],
       ),
+      // ignore: prefer_const_constructors
       backgroundColor: Color.fromRGBO(252, 251, 247, 1),
       body: StreamBuilder(
         stream: _notesService.allNotes(ownerUserId: userId),
