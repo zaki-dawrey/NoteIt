@@ -77,8 +77,8 @@ class _RegisterViewState extends State<RegisterView> {
                 final password = _password.text;
                 context.read<AuthBloc>().add(
                       AuthEventRegister(
-                        email: email,
-                        password: password,
+                        email,
+                        password,
                       ),
                     );
               },
