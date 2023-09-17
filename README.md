@@ -1,1 +1,1 @@
-# My Notes App
+# NoteIt
