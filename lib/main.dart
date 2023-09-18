@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_application_1/firebase_options.dart';
 import 'package:flutter_application_1/helpers/loading/loading_screen.dart';
 import 'package:flutter_application_1/services/auth/bloc/auth_bloc.dart';
 import 'package:flutter_application_1/services/auth/bloc/auth_event.dart';
@@ -12,24 +14,38 @@ import 'package:flutter_application_1/views/notes/notes_view.dart';
 import 'package:flutter_application_1/views/register_view.dart';
 import 'package:flutter_application_1/views/verify_email_view.dart';
 import 'constants/routes.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    MaterialApp(
-      title: 'Notes',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+  await dotenv.load(fileName: ".env");
+  String? apiKey = dotenv.env['FIREBASE_API_KEY'];
+
+  if (apiKey != null) {
+    final FirebaseOptions options = getFirebaseOptions(apiKey);
+
+    await Firebase.initializeApp(
+      options: options,
+    );
+
+    runApp(
+      MaterialApp(
+        title: 'Notes',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: BlocProvider<AuthBloc>(
+          create: (context) => AuthBloc(FirebaseAuthProvider()),
+          child: const HomePage(),
+        ),
+        routes: {
+          createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
+        },
       ),
-      home: BlocProvider<AuthBloc>(
-        create: (context) => AuthBloc(FirebaseAuthProvider()),
-        child: const HomePage(),
-      ),
-      routes: {
-        createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
-      },
-    ),
-  );
+    );
+  } else {
+    print("Error: FIREBASE_API_KEY not found in .env file.");
+  }
 }
 
 class HomePage extends StatelessWidget {

@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -14,6 +15,19 @@ import 'package:flutter/foundation.dart'
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
 /// ```
+
+final String apiKey = dotenv.env['FIREBASE_API_KEY'] ?? '';
+
+FirebaseOptions getFirebaseOptions(String apiKey) {
+  return FirebaseOptions(
+    apiKey: apiKey,
+    appId: '1:282776569513:android:6255ebd40f421da9bc4bb8',
+    messagingSenderId: '282776569513',
+    projectId: 'mynotes-flutter-zaki',
+    storageBucket: 'mynotes-flutter-zaki.appspot.com',
+  );
+}
+
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -44,7 +58,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAbm0b438W6UJ-Oo7dGHkeTIKulQMWzFzw',
+    apiKey: 'apiKey',
     appId: '1:282776569513:web:75af1ffef99837cabc4bb8',
     messagingSenderId: '282776569513',
     projectId: 'mynotes-flutter-zaki',
@@ -52,8 +66,8 @@ class DefaultFirebaseOptions {
     storageBucket: 'mynotes-flutter-zaki.appspot.com',
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDQF_dqxGipz-xgyjGLrR3d7hq36bblRh8',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: apiKey,
     appId: '1:282776569513:android:6255ebd40f421da9bc4bb8',
     messagingSenderId: '282776569513',
     projectId: 'mynotes-flutter-zaki',
@@ -61,22 +75,24 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAXEPlwJ9Oi84Io4wJkg2cO8OAhShX3gxc',
+    apiKey: 'apiKey',
     appId: '1:282776569513:ios:48509a735164a189bc4bb8',
     messagingSenderId: '282776569513',
     projectId: 'mynotes-flutter-zaki',
     storageBucket: 'mynotes-flutter-zaki.appspot.com',
-    iosClientId: '282776569513-54lmalbeljjh9ngt7h8evfjbpibiv22b.apps.googleusercontent.com',
+    iosClientId:
+        '282776569513-54lmalbeljjh9ngt7h8evfjbpibiv22b.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterApplication1',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAXEPlwJ9Oi84Io4wJkg2cO8OAhShX3gxc',
+    apiKey: 'apikey',
     appId: '1:282776569513:ios:48509a735164a189bc4bb8',
     messagingSenderId: '282776569513',
     projectId: 'mynotes-flutter-zaki',
     storageBucket: 'mynotes-flutter-zaki.appspot.com',
-    iosClientId: '282776569513-54lmalbeljjh9ngt7h8evfjbpibiv22b.apps.googleusercontent.com',
+    iosClientId:
+        '282776569513-54lmalbeljjh9ngt7h8evfjbpibiv22b.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterApplication1',
   );
 }
