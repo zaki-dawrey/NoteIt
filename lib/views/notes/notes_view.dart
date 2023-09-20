@@ -33,7 +33,7 @@ class _NotesViewState extends State<NotesView> {
       appBar: AppBar(
         // ignore: prefer_const_constructors
         backgroundColor: Color.fromRGBO(140, 162, 217, 1),
-        title: const Text('Notes'),
+        title: const Text('NoteIt'),
         actions: [
           IconButton(
               onPressed: () {

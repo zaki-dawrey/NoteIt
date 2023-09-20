@@ -44,6 +44,7 @@ void main() async {
       ),
     );
   } else {
+    // ignore: avoid_print
     print("Error: FIREBASE_API_KEY not found in .env file.");
   }
 }
