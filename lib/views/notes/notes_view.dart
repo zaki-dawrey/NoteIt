@@ -35,11 +35,11 @@ class _NotesViewState extends State<NotesView> {
         backgroundColor: Color.fromRGBO(140, 162, 217, 1),
         title: const Text('NoteIt'),
         actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(createOrUpdateNoteRoute);
-              },
-              icon: const Icon(Icons.add)),
+          // IconButton(
+          //     onPressed: () {
+          //       Navigator.of(context).pushNamed(createOrUpdateNoteRoute);
+          //     },
+          //     icon: const Icon(Icons.add)),
           PopupMenuButton<MenuAction>(onSelected: (value) async {
             switch (value) {
               case MenuAction.logout:
@@ -60,6 +60,14 @@ class _NotesViewState extends State<NotesView> {
             ];
           })
         ],
+      ),
+      //fab 
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(createOrUpdateNoteRoute);
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: Color.fromRGBO(140, 162, 217, 1),
       ),
       // ignore: prefer_const_constructors
       backgroundColor: Color.fromRGBO(252, 251, 247, 1),
@@ -84,10 +92,14 @@ class _NotesViewState extends State<NotesView> {
                   },
                 );
               } else {
-                return const CircularProgressIndicator();
+                return const Center(
+                child: CircularProgressIndicator(),
+              );
               }
             default:
-              return const CircularProgressIndicator();
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
           }
         },
       ),

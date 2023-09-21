@@ -86,7 +86,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
                   const Text(
-                    "Log In",
+                    "Login",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,

@@ -18,6 +18,12 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(140, 162, 217, 1),
+            title: const Text(
+          'Email verification',
+        ),
+      ),
       body: Container(
           height: double.maxFinite,
           decoration: const BoxDecoration(
@@ -31,17 +37,30 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
             child: Padding(
               //padding: EdgeInsets.all(size.height * 0.030),
               padding: const EdgeInsets.only(
-                  left: 20, bottom: 20, right: 20, top: 150),
+                  left: 20, bottom: 20, right: 20, top: 30),
               child: OverflowBar(
                 overflowAlignment: OverflowBarAlignment.center,
                 overflowSpacing: size.height * 0.014,
                 children: [
                   const Text(
                     "We have sent you an email verification. Please open it to verify your account",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color: kWhiteColor,
+                  ),
                   ),
                   const Text(
                     "If you haven't received a verification email yet, press the button below",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color: kWhiteColor,
                   ),
+                  ),
+                  SizedBox(height: size.height * 0.015),
                   CupertinoButton(
                     padding: EdgeInsets.zero,
                     child: Container(
