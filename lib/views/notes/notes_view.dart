@@ -61,13 +61,13 @@ class _NotesViewState extends State<NotesView> {
           })
         ],
       ),
-      //fab 
+      //fab
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).pushNamed(createOrUpdateNoteRoute);
         },
-        child: const Icon(Icons.add),
         backgroundColor: Color.fromRGBO(140, 162, 217, 1),
+        child: const Icon(Icons.add),
       ),
       // ignore: prefer_const_constructors
       backgroundColor: Color.fromRGBO(252, 251, 247, 1),
@@ -93,8 +93,8 @@ class _NotesViewState extends State<NotesView> {
                 );
               } else {
                 return const Center(
-                child: CircularProgressIndicator(),
-              );
+                  child: CircularProgressIndicator(),
+                );
               }
             default:
               return const Center(
