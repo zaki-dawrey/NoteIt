@@ -6,6 +6,7 @@ import 'package:flutter_application_1/services/cloud/cloud_note.dart';
 import 'package:flutter_application_1/services/cloud/firebase_cloud_storage.dart';
 import 'package:flutter_application_1/utilities/dialogs/logout_dialog.dart';
 import 'package:flutter_application_1/views/notes/notes_list_view.dart';
+import 'package:flutter_application_1/widgets/search_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' show ReadContext;
 import '../../constants/routes.dart';
 import '../../enums/menu_action.dart';
@@ -35,11 +36,15 @@ class _NotesViewState extends State<NotesView> {
         backgroundColor: Color.fromRGBO(140, 162, 217, 1),
         title: const Text('NoteIt'),
         actions: [
-          // IconButton(
-          //     onPressed: () {
-          //       Navigator.of(context).pushNamed(createOrUpdateNoteRoute);
-          //     },
-          //     icon: const Icon(Icons.add)),
+          IconButton(
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: NotesSearchDelegate(),
+              );
+            },
+            icon: const Icon(Icons.search),
+          ),
           PopupMenuButton<MenuAction>(onSelected: (value) async {
             switch (value) {
               case MenuAction.logout:
