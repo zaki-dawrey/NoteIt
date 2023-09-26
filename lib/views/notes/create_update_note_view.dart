@@ -93,7 +93,7 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(140, 162, 217, 1),
+        backgroundColor: const Color.fromRGBO(140, 162, 217, 1),
         title: const Text('NoteIt'),
         actions: [
           IconButton(

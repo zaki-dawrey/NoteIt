@@ -5,8 +5,8 @@ import 'package:flutter_application_1/services/auth/bloc/auth_event.dart';
 import 'package:flutter_application_1/services/cloud/cloud_note.dart';
 import 'package:flutter_application_1/services/cloud/firebase_cloud_storage.dart';
 import 'package:flutter_application_1/utilities/dialogs/logout_dialog.dart';
+import 'package:flutter_application_1/utilities/widgets/search_bar.dart';
 import 'package:flutter_application_1/views/notes/notes_list_view.dart';
-import 'package:flutter_application_1/widgets/search_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' show ReadContext;
 import '../../constants/routes.dart';
 import '../../enums/menu_action.dart';
@@ -71,7 +71,7 @@ class _NotesViewState extends State<NotesView> {
         onPressed: () {
           Navigator.of(context).pushNamed(createOrUpdateNoteRoute);
         },
-        backgroundColor: Color.fromRGBO(140, 162, 217, 1),
+        backgroundColor: const Color.fromRGBO(140, 162, 217, 1),
         child: const Icon(Icons.add),
       ),
       // ignore: prefer_const_constructors
