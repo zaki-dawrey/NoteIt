@@ -110,4 +110,5 @@ class _NotesViewState extends State<NotesView> {
       ),
     );
   }
+
 }

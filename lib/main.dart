@@ -31,6 +31,7 @@ void main() async {
     runApp(
       MaterialApp(
         title: 'Notes',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
