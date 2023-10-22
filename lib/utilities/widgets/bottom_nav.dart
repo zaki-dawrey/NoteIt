@@ -17,21 +17,21 @@ class _BottomnavBarState extends State<BottomnavBar> {
     return Scaffold(
       body: _buildSelectedScreen(),
       bottomNavigationBar: Container(
-        color: Colors.black,
+        color: const Color.fromRGBO(140, 162, 217, 1),
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 55,
-            vertical: 10,
+            horizontal: 50,
+            vertical: 8,
           ),
           child: GNav(
             iconSize: 23,
             rippleColor: Colors.grey,
             hoverColor: Colors.blueGrey,
-            backgroundColor: Colors.black,
+            backgroundColor: const Color.fromRGBO(140, 162, 217, 1),
             duration: const Duration(milliseconds: 400),
             color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: const Color.fromRGBO(140, 162, 217, 1),
+            activeColor: Colors.black,
+            tabBackgroundColor: Colors.white,
             gap: 8,
             padding: const EdgeInsets.all(12),
             selectedIndex: _selectedIndex,
